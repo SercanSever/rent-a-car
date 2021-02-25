@@ -24,9 +24,9 @@ namespace Core.DataAccess.EntityFramework
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(TEntity entitiy)
         {
-            var deletedEntity = _context.Entry(id);
+            var deletedEntity = _context.Entry(entitiy);
             deletedEntity.State = EntityState.Deleted;
             _context.SaveChanges();
         }

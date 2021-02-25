@@ -1,0 +1,11 @@
+﻿@model WebUI.Models.CarListViewModel
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var car in Model.Cars)
+{
+    @car.CarName
+}
+

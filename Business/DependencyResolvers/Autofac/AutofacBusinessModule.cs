@@ -27,6 +27,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<RentalManager>().As<IRentalManager>();
             builder.RegisterType<EfRentalDal>().As<IRentalDal>();
+
+            builder.RegisterType<CarImageManager>().As<ICarImageManager>();
+            builder.RegisterType<EfCarImageDal>().As<ICarImageDal>();
         }
     }
 }

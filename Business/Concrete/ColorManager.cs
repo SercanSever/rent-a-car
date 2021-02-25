@@ -21,16 +21,16 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        [ValidationAspect(typeof(ColorValidator)]
+        [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Color color)
         {
             _colorDal.Add(color);
             return new SuccessResult(Messages.Added);
         }
 
-        public IResult Delete(int colorId)
+        public IResult Delete(Color color)
         {
-            _colorDal.Delete(colorId);
+            _colorDal.Delete(color);
             return new SuccessResult(Messages.Delete);
         }
 

@@ -9,7 +9,7 @@ namespace Business.Abstract
     public interface IColorManager
     {
         IResult Add(Color color);
-        IResult Delete(int colorId);
+        IResult Delete(Color color);
         IDataResult<List<Color>> GetAll();
         IDataResult<Color> GetById(int colorId);
         IResult Update(Color color);
