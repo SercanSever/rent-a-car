@@ -30,6 +30,10 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<CarImageManager>().As<ICarImageManager>();
             builder.RegisterType<EfCarImageDal>().As<ICarImageDal>();
+
+            builder.RegisterType<UserManager>().As<IUserManager>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
+
         }
     }
 }
