@@ -53,12 +53,21 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Update);
         }
 
-
-        private IResult IsCarReturn(Rental rental)
+        public IResult CheckReturnDateByCarId(int id)
         {
-            if (rental.RentDate !=null && rental.ReturnDate == null)
+            var result = _rentalDal.GetAll(x => x.CarId == id && x.ReturnDate == null);
+            if (result.Count > 0)
             {
-                return new ErrorDataResult<Rental>(rental,Messages.NotValid);
+                return new ErrorResult("Undelivered Car");
+            }
+            return new SuccessResult();
+        }
+
+        public IResult IsRentable(Rental rental)
+        {
+            if (rental.RentDate != null && rental.ReturnDate == null)
+            {
+                return new ErrorDataResult<Rental>(rental, Messages.NotValid);
             }
             else
             {
