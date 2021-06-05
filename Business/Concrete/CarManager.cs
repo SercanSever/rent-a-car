@@ -23,7 +23,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
-        [SecuredOperationAspect("car.add,admin,editor")]
+        [SecuredOperationAspect("admin,editor")]
         public IResult Add(Car car)
         {
             _carDal.Add(car);
@@ -36,6 +36,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Delete);
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.List);
