@@ -13,9 +13,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ColorsController : ControllerBase
     {
-        private readonly IColorManager _colorManager;
+        private readonly IColorService _colorManager;
 
-        public ColorsController(IColorManager colorManager)
+        public ColorsController(IColorService colorManager)
         {
             _colorManager = colorManager;
         }

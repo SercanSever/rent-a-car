@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class ColorManager : IColorManager
+    public class ColorManager : IColorService
     {
         private IColorDal _colorDal;
 

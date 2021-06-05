@@ -15,7 +15,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class CarImageManager : ICarImageManager
+    public class CarImageManager : ICarImageService
     {
         private ICarImageDal _carImageDal;
 

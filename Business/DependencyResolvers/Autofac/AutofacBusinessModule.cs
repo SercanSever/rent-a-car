@@ -8,7 +8,6 @@ using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
 
 namespace Business.DependencyResolvers.Autofac
@@ -17,28 +16,28 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<CarManager>().As<ICarManager>();
+            builder.RegisterType<CarManager>().As<ICarService>();
             builder.RegisterType<EfCarDal>().As<ICarDal>();
 
-            builder.RegisterType<BrandManager>().As<IBrandManager>();
+            builder.RegisterType<BrandManager>().As<IBrandService>();
             builder.RegisterType<EfBrandDal>().As<IBrandDal>();
 
-            builder.RegisterType<ColorManager>().As<IColorManager>();
+            builder.RegisterType<ColorManager>().As<IColorService>();
             builder.RegisterType<EfColorDal>().As<IColorDal>();
 
-            builder.RegisterType<CustomerManager>().As<ICustomerManager>();
+            builder.RegisterType<CustomerManager>().As<ICustomerService>();
             builder.RegisterType<EfCustomerDal>().As<ICustomerDal>();
 
-            builder.RegisterType<RentalManager>().As<IRentalManager>();
+            builder.RegisterType<RentalManager>().As<IRentalService>();
             builder.RegisterType<EfRentalDal>().As<IRentalDal>();
 
-            builder.RegisterType<CarImageManager>().As<ICarImageManager>();
+            builder.RegisterType<CarImageManager>().As<ICarImageService>();
             builder.RegisterType<EfCarImageDal>().As<ICarImageDal>();
 
-            builder.RegisterType<UserManager>().As<IUserManager>();
+            builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
 
-            var assembly = Assembly.GetExecutingAssembly();
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly)
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors(new ProxyGenerationOptions { Selector = new AspectInterceptorSelector() })

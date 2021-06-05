@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -13,5 +14,6 @@ namespace Business.Constants
         public static string Update = "Başarıyla Güncellendi.";
         public static string MaintenanceTime = "Bakım Saati.";
         public static string List = "Başarıyla Listelendi.";
+        public static string AuthorizationDenied = "Yetkiniz yok.";
     }
 }

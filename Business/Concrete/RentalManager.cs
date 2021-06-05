@@ -13,7 +13,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class RentalManager : IRentalManager
+    public class RentalManager : IRentalService
     {
         private IRentalDal _rentalDal;
         public RentalManager(IRentalDal rentalDal)
@@ -24,7 +24,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            BusinessRules.Run(IsCarReturn(rental));
+            BusinessRules.Run(IsRentable(rental));
 
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.Added);

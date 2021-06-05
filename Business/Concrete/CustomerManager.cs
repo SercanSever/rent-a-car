@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class CustomerManager : ICustomerManager
+    public class CustomerManager : ICustomerService
     {
         private ICustomerDal _customerDal;
 

@@ -13,9 +13,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class BrandsController : ControllerBase
     {
-        private readonly IBrandManager _brandManager;
+        private readonly IBrandService _brandManager;
 
-        public BrandsController(IBrandManager brandManager)
+        public BrandsController(IBrandService brandManager)
         {
             _brandManager = brandManager;
         }
@@ -46,7 +46,7 @@ namespace WebAPI.Controllers
             var result = _brandManager.Add(brand);
             if (result.Success)
             {
-                return Ok(result)
+                return Ok(result);
             }
             return BadRequest(result);
         }
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
             var result = _brandManager.Update(brand);
             if (result.Success)
             {
-                return Ok(result)
+                return Ok(result);
             }
             return BadRequest(result);
         }
@@ -66,7 +66,7 @@ namespace WebAPI.Controllers
             var result = _brandManager.Update(brand);
             if (result.Success)
             {
-                return Ok(result)
+                return Ok(result);
             }
             return BadRequest(result);
         }

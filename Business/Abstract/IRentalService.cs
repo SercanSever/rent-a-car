@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface IRentalManager
+    public interface IRentalService
     {
         IResult Add(Rental rental);
         IResult Delete(Rental rental);
