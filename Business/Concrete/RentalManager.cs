@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.BusinessEngine;
 using Core.Utilities.Results.Abstract;
@@ -22,6 +23,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(RentalValidator))]
+        [TransactionScopeAspect]
         public IResult Add(Rental rental)
         {
             BusinessRules.Run(IsRentable(rental));
