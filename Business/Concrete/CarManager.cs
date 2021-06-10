@@ -25,7 +25,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
-        [SecuredOperationAspect("admin,editor")]
+        //[SecuredOperationAspect("admin,editor")]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
@@ -40,16 +40,15 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
-        [PerformanceAspect(4)]
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.List);
         }
         [CacheAspect]
-        [PerformanceAspect(4)]
         public IDataResult<Car> GetById(int carId)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(c => c.CarId == carId));
+            
+            return new SuccessDataResult<Car>(_carDal.Get(x=>x.CarId == carId));
         }
 
         public IDataResult<List<Car>> GetCarsByColorId(int id)

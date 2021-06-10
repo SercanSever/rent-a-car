@@ -4,6 +4,7 @@ using Core.Utilities.Ioc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics;
 
 namespace Core.DependencyResolvers
 {
@@ -13,6 +14,7 @@ namespace Core.DependencyResolvers
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<ICacheService, MemoryCacheManager>();
+            services.AddSingleton<Stopwatch>();
             services.AddMemoryCache();
         }
     }
