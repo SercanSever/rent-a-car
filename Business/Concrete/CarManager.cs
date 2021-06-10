@@ -25,7 +25,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
-        //[SecuredOperationAspect("admin,editor")]
+        //[SecuredOperationAspect("admin")]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
